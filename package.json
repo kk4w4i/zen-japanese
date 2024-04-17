@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "deploy": "npm run build && git checkout build && rm -rf ./* && cp -r dist/* ./ && git add . && git commit -m 'Deploy' && git push origin build && git checkout main",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
