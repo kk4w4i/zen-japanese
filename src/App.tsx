@@ -2,6 +2,7 @@ import './App.css'
 
 import Bar from './assets/storephotos/bar.webp'
 import DinnerIcon from './assets/pngicons/dinnericon.png'
+import DinnerMenu from './assets/PDF/Zen Japanese Dinner Menu.pdf'
 import { Drawer } from 'vaul';
 import Drinks from './assets/storephotos/drinks.webp'
 import FadeGallery from './components/FadeGallery.tsx'
@@ -66,15 +67,19 @@ function App() {
                 <div className='flex flex-col md:grid md:grid-cols-2 w-full h-full'>
                   <div className='p-20 flex flex-col items-center gap-5 justify-center font-serif text-white'>
                     Lunch
-                    <button>
-                      <img className='object-contain h-[400px]' src={LunchIcon}/>
-                    </button>
+                    <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
+                      <button>
+                        <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
+                      </button>
+                    </a>
                   </div>
                   <div className='p-20 flex flex-col items-center gap-5 justify-center font-serif text-white'>
                     Dinner
-                    <button>
-                      <img className='object-contain h-[400px]' src={DinnerIcon}/>
-                    </button>
+                    <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
+                      <button>
+                        <img className='object-contain' src={DinnerIcon} alt="Dinner Icon"/>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -83,7 +88,7 @@ function App() {
           </Drawer.Portal>
         </Drawer.Root>
       </div>
-      <div className='fixed right-[20%] top-[45%]'>
+      <div className='fixed right-[30%] top-[40%]'>
         <span className='flex h-5 w-5'>
           <span className="relative flex h-5 w-5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
