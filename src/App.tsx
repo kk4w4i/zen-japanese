@@ -53,6 +53,15 @@ function App() {
       <button className='fixed flex justify-center items-center gap-3 left-10 top-10 z-20 font-serif text-white text-[1.2rem] cursor-pointer'>
         <MenuBook/>Menu
       </button>
+      <div className='fixed right-[20%] top-[45%] z-5'>
+        <span className='flex h-5 w-5'>
+          <span className="relative flex h-5 w-5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-5 w-5 bg-gray-200"></span>
+          </span>
+        </span>
+        <p className='absolute bottom-5 left-7 w-[6rem] font-serif text-white text-[0.8rem]'>Tap to scroll</p>
+      </div>
       <div className='fixed flex flex-col gap-5 h-screen w-screen justify-center items-center z-2'>
         <div className='mb-20'>
           <Logo/>
