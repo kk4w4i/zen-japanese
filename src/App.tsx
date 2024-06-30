@@ -9,6 +9,7 @@ import FadeGallery from './components/FadeGallery.tsx'
 import Instore from './assets/storephotos/instore.webp'
 import { Logo } from './assets/svg/logo.tsx'
 import LunchIcon from './assets/pngicons/lunchicon.png'
+import LunchMenu from './assets/PDF/Zen Japanese Lunch Menu.pdf'
 import { MenuBook } from './assets/svg/icons.tsx'
 import Salmon from './assets/storephotos/salmon.webp'
 import Salmon2 from './assets/storephotos/salmon2.webp'
@@ -67,7 +68,7 @@ function App() {
                 <div className='flex flex-col md:grid md:grid-cols-2 w-full h-full'>
                   <div className='p-20 flex flex-col items-center gap-5 justify-center font-serif text-white'>
                     Lunch
-                    <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
+                    <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
                       <button>
                         <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
                       </button>
