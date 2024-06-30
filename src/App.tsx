@@ -65,8 +65,8 @@ function App() {
           <Drawer.Portal>
             <Drawer.Content className='absolute flex justify-center items-center bottom-0 left-0 w-full'>
               <div className='flex justify-center items-center w-full h-full backdrop-blur-sm rounded-t-lg'>
-                <div className='flex flex-col md:grid md:grid-cols-2 w-full h-full'>
-                  <div className='p-20 flex flex-col items-center gap-5 justify-center font-serif text-white'>
+                <div className='flex flex-col md:grid md:grid-cols-2 w-full h-full font-serif text-white text-[1.2rem]'>
+                  <div className='p-10 flex flex-col items-center gap-5 justify-center'>
                     Lunch
                     <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
                       <button>
@@ -74,7 +74,7 @@ function App() {
                       </button>
                     </a>
                   </div>
-                  <div className='p-20 flex flex-col items-center gap-5 justify-center font-serif text-white'>
+                  <div className='p-10 flex flex-col items-center gap-5 justify-center'>
                     Dinner
                     <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
                       <button>
