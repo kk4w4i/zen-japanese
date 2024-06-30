@@ -1,18 +1,63 @@
 import './App.css'
 
+import Bar from './assets/storephotos/bar.webp'
+import Drinks from './assets/storephotos/drinks.webp'
+import FadeGallery from './components/FadeGallery.tsx'
+import Instore from './assets/storephotos/instore.webp'
 import { Logo } from './assets/svg/logo.tsx'
-import StorePhoto from './assets/store-front.webp'
+import { MenuBook } from './assets/svg/icons.tsx'
+import Salmon from './assets/storephotos/salmon.webp'
+import Salmon2 from './assets/storephotos/salmon2.webp'
+import Serving from './assets/storephotos/serving.webp'
+import StorePhoto from './assets/storephotos/store-front.webp'
+import StoreSign from './assets/storephotos/store-sign.webp'
+import Yamazaki from './assets/storephotos/yamazaki.webp'
+import { useState } from 'react';
 
 function App() {
+  const [slide, setSlide] = useState(0);
 
+  const gallery = {
+    0: StorePhoto,
+    1: StoreSign,
+    2: Yamazaki,
+    3: Serving,
+    4: Bar,
+    5: Salmon,
+    6: Drinks,
+    7: Salmon2,
+    8: Instore
+  }
+
+  const slideLeft = () => {
+    if (slide === 0) {
+      setSlide(Object.keys(gallery).length - 1)
+    } else {
+      setSlide(slide - 1)
+    }
+  }
+
+  const slideRight = () => {
+    if (slide === (Object.keys(gallery).length - 1)) {
+      setSlide(0)
+    } else {
+      setSlide(slide + 1)
+    }
+  }
+  
   return (
-    <>
-    <img className="object-cover fixed w-full h-full" src={StorePhoto}></img>
-      <div className='fixed flex flex-col gap-5 h-screen w-screen justify-center items-center z-10'>
-        <div>
+    <div className='w-screen h-screen'>
+      <FadeGallery isActive={slide} gallery={gallery}/>
+      <button className='fixed w-[50%] h-full z-10 cursor-w-resize' onClick={slideLeft}/>
+      <button className='fixed right-0 w-[50%] h-full z-10 cursor-e-resize' onClick={slideRight}/>
+      <button className='fixed flex justify-center items-center gap-3 left-10 top-10 z-20 font-serif text-white text-[1.2rem] cursor-pointer'>
+        <MenuBook/>Menu
+      </button>
+      <div className='fixed flex flex-col gap-5 h-screen w-screen justify-center items-center z-2'>
+        <div className='mb-20'>
           <Logo/>
         </div>
-        <div className='flex-col fixed bottom-5 left-5 text-[1rem] md:text-[1.5rem]'>
+        <div className='flex-col fixed bottom-10 left-10 text-[1rem] md:text-[1.5rem]'>
           <p className='font-serif  text-white'>
             Opening Hours:
           </p>
@@ -33,7 +78,7 @@ function App() {
           </p> 
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
