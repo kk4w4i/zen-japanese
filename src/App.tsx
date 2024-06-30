@@ -1,6 +1,7 @@
 import './App.css'
 
 import Bar from './assets/storephotos/bar.webp'
+import  BusinessCard from './assets/pngicons/Businesscard.png'
 import DinnerIcon from './assets/pngicons/dinnericon.png'
 import DinnerMenu from './assets/PDF/Zen Japanese Dinner Menu.pdf'
 import { Drawer } from 'vaul';
@@ -16,6 +17,7 @@ import Salmon2 from './assets/storephotos/salmon2.webp'
 import Serving from './assets/storephotos/serving.webp'
 import StorePhoto from './assets/storephotos/store-front.webp'
 import StoreSign from './assets/storephotos/store-sign.webp'
+import { X } from 'lucide-react';
 import Yamazaki from './assets/storephotos/yamazaki.webp'
 import { useState } from 'react';
 
@@ -51,44 +53,85 @@ function App() {
   }
   
   return (
-    <div className='w-screen h-screen'>
+    <>
       <FadeGallery isActive={slide} gallery={gallery}/>
-      <button className='fixed w-[50%] h-full z-10 cursor-w-resize' onClick={slideLeft}/>
-      <button className='fixed right-0 w-[50%] h-full z-10 cursor-e-resize' onClick={slideRight}/>
-      <div className='flex justify-center items-center h-full w-full'>
-        <Drawer.Root>
-          <Drawer.Trigger asChild>
-            <button className='absolute flex justify-center items-center gap-3 left-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
-              <MenuBook/>Menu
-            </button>
-          </Drawer.Trigger>
-          <Drawer.Portal>
-            <Drawer.Content className='absolute flex justify-center items-center bottom-0 left-0 w-full'>
-              <div className='flex justify-center items-center w-full h-full backdrop-blur-sm rounded-t-lg'>
-                <div className='flex flex-col md:grid md:grid-cols-2 w-full h-full font-serif text-white text-[1.2rem]'>
-                  <div className='p-10 flex flex-col items-center gap-5 justify-center'>
-                    Lunch
-                    <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
-                      <button>
-                        <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
-                      </button>
-                    </a>
-                  </div>
-                  <div className='p-10 flex flex-col items-center gap-5 justify-center'>
-                    Dinner
-                    <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
-                      <button>
-                        <img className='object-contain' src={DinnerIcon} alt="Dinner Icon"/>
-                      </button>
-                    </a>
-                  </div>
-                </div>
+      <button className='fixed w-[50%] h-screen z-10 cursor-w-resize' onClick={slideLeft}/>
+      <button className='fixed right-0 w-[50%] h-screen z-10 cursor-e-resize' onClick={slideRight}/>
+      <Drawer.Root>
+        <Drawer.Trigger asChild>
+          <button className='fixed flex justify-center items-center gap-3 left-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
+            <MenuBook/>Menu
+          </button>
+        </Drawer.Trigger>
+        <Drawer.Portal>
+          <Drawer.Content className='fixed h-screen w-screen flex justify-center items-center backdrop-blur-sm z-30'>
+            <div className='relative flex flex-col md:grid md:grid-cols-2 w-full h-full pt-10 font-serif text-white text-[1.2rem] overflow-auto'>
+              <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                Lunch
+                <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
+                  <button>
+                    <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
+                  </button>
+                </a>
               </div>
-            </Drawer.Content>
-            <Drawer.Overlay />
-          </Drawer.Portal>
-        </Drawer.Root>
-      </div>
+              <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                Dinner
+                <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
+                  <button>
+                    <img className='object-contain' src={DinnerIcon} alt="Dinner Icon"/>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <Drawer.Close>
+              <button className='absolute right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
+                <X/>
+              </button>
+            </Drawer.Close>
+          </Drawer.Content>
+        </Drawer.Portal>
+      </Drawer.Root>
+      <Drawer.Root>
+        <Drawer.Trigger asChild>
+          <button className='fixed right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
+            Contact
+          </button>
+        </Drawer.Trigger>
+        <Drawer.Portal>
+          <Drawer.Content className='fixed h-screen w-screen backdrop-blur-sm z-30'> 
+            <img className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]' src={BusinessCard}/>
+            <div className='absolute w-full left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col justify-center items-center z-40'>
+              <a href="https://www.google.com/maps/search/?api=1&query=11/43+Burnett+St+Buderim+4556+QLD" target="_blank" rel="noopener noreferrer" className='font-mono text-[0.9rem] hover:underline'>
+                11/43 Burnett St Buderim 4556 QLD
+              </a>
+              <section className='flex items-center gap-2'>
+                <a href="tel:+61754789476" className='font-mono text-[0.9rem] hover:underline'>
+                  07 5478 9476
+                </a>
+                -
+                <a href="mailto:contact@zen-japanese.com" className='font-mono text-[0.9rem] hover:underline'>
+                  contact@zen-japanese.com
+                </a>
+              </section>
+              <section className='flex items-center gap-2'>
+                <a href="https://www.instagram.com/zen_japanese" target="_blank" rel="noopener noreferrer" className='font-mono text-[0.9rem] hover:underline'>
+                  @zen_japanese
+                </a>
+                -
+                <a className='font-mono text-[0.9rem]'>
+                  www.zen-japanese.com
+                </a>
+              </section>
+              
+            </div>
+            <Drawer.Close>
+              <button className='absolute right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
+                <X/>
+              </button>
+            </Drawer.Close>
+          </Drawer.Content>
+        </Drawer.Portal>
+      </Drawer.Root>
       <div className='fixed right-[30%] top-[40%]'>
         <span className='flex h-5 w-5'>
           <span className="relative flex h-5 w-5">
@@ -121,7 +164,7 @@ function App() {
           Dinner 17:00 ~ 20:30
         </p> 
       </div>
-    </div>
+    </>
   )
 }
 

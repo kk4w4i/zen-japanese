@@ -74,7 +74,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        serif: ['Yuji Syuku', ...defaultTheme.fontFamily.sans]
+        serif: ['Yuji Syuku', ...defaultTheme.fontFamily.sans],
+        mono: ['Roboto Mono', ...defaultTheme.fontFamily.sans]
       },
       fontWeight: {
         thin: 100,
