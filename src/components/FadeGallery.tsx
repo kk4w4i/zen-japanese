@@ -3,7 +3,6 @@ import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { LinearBlur } from 'progressive-blur'
 import LoadingLogo from "../assets/logo/logo-black.png"
 
 interface Props {
