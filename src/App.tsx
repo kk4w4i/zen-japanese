@@ -1,66 +1,103 @@
-import './App.css'
+import './App.css';
 
-import Bar from './assets/storephotos/bar.webp'
-import  BusinessCard from './assets/pngicons/Businesscard.png'
-import DinnerIcon from './assets/pngicons/dinnericon.png'
-import DinnerMenu from './assets/PDF/Zen Japanese Dinner Menu.pdf'
+import { useEffect, useState } from 'react';
+
+import Bar from './assets/storephotos/bar.webp';
+import BusinessCard from './assets/pngicons/Businesscard.png';
+import DinnerIcon from './assets/pngicons/dinnericon.png';
+import DinnerMenu from './assets/PDF/Zen Japanese Dinner Menu.pdf';
 import { Drawer } from 'vaul';
-import Drinks from './assets/storephotos/drinks.webp'
-import FadeGallery from './components/FadeGallery.tsx'
-import Instore from './assets/storephotos/instore.webp'
-import { Logo } from './assets/svg/logo.tsx'
-import LunchIcon from './assets/pngicons/lunchicon.png'
-import LunchMenu from './assets/PDF/Zen Japanese Lunch Menu.pdf'
-import { MenuBook } from './assets/svg/icons.tsx'
-import Salmon from './assets/storephotos/salmon.webp'
-import Salmon2 from './assets/storephotos/salmon2.webp'
-import Serving from './assets/storephotos/serving.webp'
-import StorePhoto from './assets/storephotos/store-front.webp'
-import StoreSign from './assets/storephotos/store-sign.webp'
+import Drinks from './assets/storephotos/drinks.webp';
+import FadeGallery from './components/FadeGallery.tsx';
+import Instore from './assets/storephotos/instore.webp';
+import { LinearBlur } from 'progressive-blur'
+import { Logo } from './assets/svg/logo.tsx';
+import LunchIcon from './assets/pngicons/lunchicon.png';
+import LunchMenu from './assets/PDF/Zen Japanese Lunch Menu.pdf';
+import { MenuBook } from './assets/svg/icons.tsx';
+import Salmon from './assets/storephotos/salmon.webp';
+import Salmon2 from './assets/storephotos/salmon2.webp';
+import Serving from './assets/storephotos/serving.webp';
+import StorePhoto from './assets/storephotos/store-front.webp';
+import StoreSign from './assets/storephotos/store-sign.webp';
 import { X } from 'lucide-react';
-import Yamazaki from './assets/storephotos/yamazaki.webp'
-import { useState } from 'react';
+import Yamazaki from './assets/storephotos/yamazaki.webp';
 
-function App() {
-  const [slide, setSlide] = useState(0);
+interface GalleryItem {
+  image: string;
+  color: string;
+}
 
-  const gallery = {
-    0: StorePhoto,
-    1: StoreSign,
-    2: Yamazaki,
-    3: Serving,
-    4: Bar,
-    5: Salmon,
-    6: Drinks,
-    7: Salmon2,
-    8: Instore
-  }
+const gallery: Record<number, GalleryItem> = {
+  0: { image: StorePhoto, color: "#514C45" },
+  1: { image: StoreSign, color: "#5B5C53" },
+  2: { image: Yamazaki, color: "#706053" },
+  3: { image: Serving, color: "#BE9A5E" },
+  4: { image: Bar, color: "#9B938E" },
+  5: { image: Salmon, color: "#9E9B99" },
+  6: { image: Drinks, color: "#D8D5CB" },
+  7: { image: Salmon2, color: "#848484" },
+  8: { image: Instore, color: "#AC9A8D" }
+};
+  
+const App: React.FC = () => {
+  const [slide, setSlide] = useState<number>(0);
+
+  const updateThemeColor = (color: string) => {
+    let themeColorMetaTag = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement;
+    if (!themeColorMetaTag) {
+      themeColorMetaTag = document.createElement('meta') as HTMLMetaElement;
+      themeColorMetaTag.name = "theme-color";
+      document.head.appendChild(themeColorMetaTag);
+    }
+    themeColorMetaTag.content = color;
+  };
 
   const slideLeft = () => {
-    if (slide === 0) {
-      setSlide(Object.keys(gallery).length - 1)
-    } else {
-      setSlide(slide - 1)
-    }
-  }
+    const newSlide = slide === 0 ? Object.keys(gallery).length - 1 : slide - 1;
+    setSlide(newSlide);
+    updateThemeColor(gallery[newSlide].color);
+  };
 
   const slideRight = () => {
-    if (slide === (Object.keys(gallery).length - 1)) {
-      setSlide(0)
-    } else {
-      setSlide(slide + 1)
-    }
-  }
-  
+    const newSlide = slide === Object.keys(gallery).length - 1 ? 0 : slide + 1;
+    setSlide(newSlide);
+    updateThemeColor(gallery[newSlide].color);
+  };
+
+  useEffect(() => {
+    updateThemeColor(gallery[slide].color);
+  }, [slide]);
+
   return (
     <>
-      <FadeGallery isActive={slide} gallery={gallery}/>
-      <button className='fixed w-[50%] h-screen z-10 cursor-w-resize' onClick={slideLeft}/>
-      <button className='fixed right-0 w-[50%] h-screen z-10 cursor-e-resize' onClick={slideRight}/>
+      <LinearBlur
+        // The resolution of the blur. Higher values will result in a more detailed blur, but will be more computationally expensive. Default is 8.
+        steps={5}
+        // The blur radius of the blur in pixels at the peak of the gradient. Default is 64.
+        strength={100}
+        // How much of the blur is falloff. 0 means no falloff, 100 means the entire blur is falloff. Default is 100.
+        falloffPercentage={100}
+        // The tint applied to the blur. This can be any valid CSS color. Default is transparent.
+        tint="rgba(0, 0, 0, 0.1)"
+        // You can pass any div props to the component. Useful for positioning.
+        style={{
+            position: "absolute",
+            inset: 0,
+            top: 0,
+            height: "5vh",
+            zIndex: 60,
+        }}
+            // Same props as RadialBlur, but with an additional side prop that specifies the direction of the gradient and the transform origin so it's easy to scale in the right direction. Default is "top".
+            side="top"
+        />
+      <FadeGallery isActive={slide} gallery={Object.fromEntries(Object.entries(gallery).map(([key, value]) => [key, value.image]))} />
+      <button className='fixed w-[50%] h-screen z-10 cursor-w-resize' onClick={slideLeft} />
+      <button className='fixed right-0 w-[50%] h-screen z-10 cursor-e-resize' onClick={slideRight} />
       <Drawer.Root>
         <Drawer.Trigger asChild>
           <button className='fixed flex justify-center items-center gap-3 left-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
-            <MenuBook/>Menu
+            <MenuBook />Menu
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
@@ -78,14 +115,14 @@ function App() {
                 Dinner
                 <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
                   <button>
-                    <img className='object-contai rounded-lg' src={DinnerIcon} alt="Dinner Icon"/>
+                    <img className='object-contai rounded-lg' src={DinnerIcon} alt="Dinner Icon" />
                   </button>
                 </a>
               </div>
             </div>
             <Drawer.Close>
               <button className='absolute right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
-                <X/>
+                <X />
               </button>
             </Drawer.Close>
           </Drawer.Content>
@@ -98,8 +135,8 @@ function App() {
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Content className='fixed h-screen w-screen backdrop-blur-sm z-30'> 
-            <img className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]' src={BusinessCard}/>
+          <Drawer.Content className='fixed h-screen w-screen backdrop-blur-sm z-30'>
+            <img className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]' src={BusinessCard} />
             <div className='absolute w-full left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col justify-center items-center z-40'>
               <a href="https://www.google.com/maps/search/?api=1&query=11/43+Burnett+St+Buderim+4556+QLD" target="_blank" rel="noopener noreferrer" className='font-mono text-[0.9rem] hover:underline'>
                 11/43 Burnett St Buderim 4556 QLD
@@ -122,11 +159,10 @@ function App() {
                   www.zen-japanese.com
                 </a>
               </section>
-              
             </div>
             <Drawer.Close>
               <button className='absolute right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
-                <X/>
+                <X />
               </button>
             </Drawer.Close>
           </Drawer.Content>
@@ -142,14 +178,14 @@ function App() {
         <p className='absolute bottom-5 left-7 w-[6rem] font-serif text-white text-[0.8rem]'>Tap to scroll</p>
       </div>
       <div className='fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]'>
-        <Logo/>
+        <Logo />
       </div>
       <div className='flex-col fixed bottom-10 left-10 text-[1rem] md:text-[1.5rem]'>
         <p className='font-serif  text-white'>
           Opening Hours:
         </p>
         <p className='font-serif  text-white'>
-          Monday 
+          Monday
         </p>
         <p className='font-serif text-white'>
           Lunch 10:30 ~ 14:30
@@ -162,10 +198,10 @@ function App() {
         </p>
         <p className='font-serif  text-white'>
           Dinner 17:00 ~ 20:30
-        </p> 
+        </p>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -3,6 +3,7 @@ import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import { LinearBlur } from 'progressive-blur'
 import LoadingLogo from "../assets/logo/logo-black.png"
 
 interface Props {
@@ -51,6 +52,7 @@ const FadeGallery: React.FC<Props> = ({ gallery, isActive }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
+        
         <img
           className="fixed object-cover w-full h-full"
           src={gallery[isActive]}
