@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Bar from './assets/storephotos/bar.webp';
 import BusinessCard from './assets/pngicons/Businesscard.png';
-import DinnerIcon from './assets/pngicons/dinnericon.png';
+import DinnerIcon from './assets/pngicons/Dinner Icon.webp';
 import DinnerMenu from './assets/PDF/Zen Japanese Dinner Menu.pdf';
 import { Drawer } from 'vaul';
 import Drinks from './assets/storephotos/drinks.webp';
@@ -12,7 +12,7 @@ import FadeGallery from './components/FadeGallery.tsx';
 import Instore from './assets/storephotos/instore.webp';
 import { LinearBlur } from 'progressive-blur'
 import { Logo } from './assets/svg/logo.tsx';
-import LunchIcon from './assets/pngicons/lunchicon.png';
+import LunchIcon from './assets/pngicons/Lunch Icon.webp';
 import LunchMenu from './assets/PDF/Zen Japanese Lunch Menu.pdf';
 import { MenuBook } from './assets/svg/icons.tsx';
 import Salmon from './assets/storephotos/salmon.webp';
@@ -92,16 +92,16 @@ const App: React.FC = () => {
             side="top"
         />
       <FadeGallery isActive={slide} gallery={Object.fromEntries(Object.entries(gallery).map(([key, value]) => [key, value.image]))} />
-      <button className='fixed w-[50%] h-screen z-10 cursor-w-resize' onClick={slideLeft} />
-      <button className='fixed right-0 w-[50%] h-screen z-10 cursor-e-resize' onClick={slideRight} />
+      <button className='fixed w-[50%] h-screen z-30 cursor-w-resize' onClick={slideLeft} />
+      <button className='fixed right-0 w-[50%] h-screen z-30 cursor-e-resize' onClick={slideRight} />
       <Drawer.Root>
         <Drawer.Trigger asChild>
-          <button className='fixed flex justify-center items-center gap-3 left-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
+          <button className='fixed flex justify-center items-center gap-3 left-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-40'>
             <MenuBook />Menu
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Content className='fixed h-screen w-screen flex justify-center items-center backdrop-blur-sm z-30'>
+          <Drawer.Content className='fixed h-screen w-screen flex justify-center items-center backdrop-blur-sm z-50'>
             <div className='relative flex flex-col md:grid md:grid-cols-2 w-full h-full pt-10 font-serif text-white text-[1.2rem] overflow-auto'>
               <div className='p-10 flex flex-col items-center gap-5 justify-center'>
                 Lunch
@@ -130,12 +130,12 @@ const App: React.FC = () => {
       </Drawer.Root>
       <Drawer.Root>
         <Drawer.Trigger asChild>
-          <button className='fixed right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
+          <button className='fixed right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-40'>
             Contact
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Content className='fixed h-screen w-screen backdrop-blur-sm z-30'>
+          <Drawer.Content className='fixed h-screen w-screen backdrop-blur-sm z-50'>
             <img className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]' src={BusinessCard} />
             <div className='absolute w-full left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col justify-center items-center z-40'>
               <a href="https://www.google.com/maps/search/?api=1&query=11/43+Burnett+St+Buderim+4556+QLD" target="_blank" rel="noopener noreferrer" className='font-mono text-[0.9rem] hover:underline'>
@@ -168,14 +168,14 @@ const App: React.FC = () => {
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer.Root>
-      <div className='fixed right-[30%] top-[40%] z-20'>
+      <div className='fixed right-[50%] md:right-[30%] top-[30%] z-20'>
         <span className='flex h-5 w-5'>
           <span className="relative flex h-5 w-5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-5 w-5 bg-gray-200"></span>
           </span>
         </span>
-        <p className='absolute bottom-5 left-7 w-[6rem] font-serif text-white text-[0.8rem]'>Tap to scroll</p>
+        <p className='absolute bottom-5 left-7 w-[10rem] font-serif text-white text-[0.8rem]'>Tap anywhere to scroll</p>
       </div>
       <div className='fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-20'>
         <Logo />
