@@ -70,7 +70,7 @@ function App() {
                 Lunch
                 <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
                   <button>
-                    <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
+                    <img className='object-contain rounded-lg' src={LunchIcon} alt="Lunch Icon" />
                   </button>
                 </a>
               </div>
@@ -78,7 +78,7 @@ function App() {
                 Dinner
                 <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
                   <button>
-                    <img className='object-contain' src={DinnerIcon} alt="Dinner Icon"/>
+                    <img className='object-contai rounded-lg' src={DinnerIcon} alt="Dinner Icon"/>
                   </button>
                 </a>
               </div>
