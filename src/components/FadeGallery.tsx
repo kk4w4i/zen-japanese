@@ -1,9 +1,8 @@
 import * as React from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import LoadingLogo from "../assets/logo/logo-black.png"
+import LoadingLogo from "../assets/logo/logo-black.png";
 
 interface Props {
   isActive: number;
@@ -28,37 +27,30 @@ const FadeGallery: React.FC<Props> = ({ gallery, isActive }) => {
   const imageUrls = Object.values(gallery);
 
   useEffect(() => {
+    // Preload images only once when the component mounts
     preloadImages(imageUrls)
       .then(() => setIsLoading(false))
       .catch((error) => console.error("Failed to preload images", error));
-  }, [imageUrls]);
+  }, []); // Empty dependency array ensures this runs only once
 
   if (isLoading) {
     return (
-        <div className="fixed h-screen w-screen bg-white z-50">
-            <img className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] h-[10rem]' src={LoadingLogo} />
-        </div>
-    )
-    
+      <div className="fixed h-screen w-screen bg-white z-50">
+        <img
+          className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] h-[10rem]"
+          src={LoadingLogo}
+          alt="Loading"
+        />
+      </div>
+    );
   }
 
   return (
-    <AnimatePresence>
-      <motion.div
-        key={isActive} // Use isActive as the key to trigger re-render
-        className="fixed w-full h-full"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        
         <img
           className="fixed object-cover w-full h-full"
           src={gallery[isActive]}
           alt="Gallery Image"
         />
-      </motion.div>
-    </AnimatePresence>
   );
 };
 
