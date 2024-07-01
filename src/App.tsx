@@ -168,7 +168,7 @@ const App: React.FC = () => {
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer.Root>
-      <div className='fixed right-[30%] top-[40%]'>
+      <div className='fixed right-[30%] top-[40%] z-20'>
         <span className='flex h-5 w-5'>
           <span className="relative flex h-5 w-5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
@@ -177,10 +177,10 @@ const App: React.FC = () => {
         </span>
         <p className='absolute bottom-5 left-7 w-[6rem] font-serif text-white text-[0.8rem]'>Tap to scroll</p>
       </div>
-      <div className='fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]'>
+      <div className='fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-20'>
         <Logo />
       </div>
-      <div className='flex-col fixed bottom-10 left-10 text-[1rem] md:text-[1.5rem]'>
+      <div className='flex-col fixed bottom-10 left-10 text-[1rem] md:text-[1.5rem] z-20'>
         <p className='font-serif  text-white'>
           Opening Hours:
         </p>
