@@ -168,14 +168,14 @@ const App: React.FC = () => {
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer.Root>
-      <div className='fixed right-[50%] md:right-[30%] top-[30%] z-20'>
+      <div className='fixed right-[42%] md:right-[30%] top-[30%] z-20'>
         <span className='flex h-5 w-5'>
           <span className="relative flex h-5 w-5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-5 w-5 bg-gray-200"></span>
           </span>
         </span>
-        <p className='absolute bottom-5 left-7 w-[10rem] font-serif text-white text-[0.8rem]'>Tap anywhere to scroll</p>
+        <p className='absolute bottom-7 left-2 w-[10rem] font-serif text-white text-[0.8rem]'>Tap anywhere to scroll</p>
       </div>
       <div className='fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] z-20'>
         <Logo />
