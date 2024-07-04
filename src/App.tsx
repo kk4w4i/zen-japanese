@@ -20,6 +20,8 @@ import Salmon2 from './assets/storephotos/salmon2.webp';
 import Serving from './assets/storephotos/serving.webp';
 import StorePhoto from './assets/storephotos/store-front.webp';
 import StoreSign from './assets/storephotos/store-sign.webp';
+import TAMenu from './assets/PDF/Zen Japanese Takeaway Menu.pdf'
+import TAMenuIcon from './assets/pngicons/Takeaway Icon.webp'
 import { X } from 'lucide-react';
 import Yamazaki from './assets/storephotos/yamazaki.webp';
 
@@ -102,12 +104,12 @@ const App: React.FC = () => {
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Content className='fixed h-screen w-screen flex justify-center items-center backdrop-blur-sm z-50'>
-            <div className='relative flex flex-col md:grid md:grid-cols-2 w-full h-full pt-10 font-serif text-white text-[1.2rem] overflow-auto'>
+            <div className='relative flex flex-col md:grid md:grid-cols-3 w-full h-full pt-10 font-serif text-white text-[1.2rem] overflow-auto'>
               <div className='p-10 flex flex-col items-center gap-5 justify-center'>
                 Lunch
                 <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
                   <button>
-                    <img className='object-contain rounded-lg' src={LunchIcon} alt="Lunch Icon" />
+                    <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
                   </button>
                 </a>
               </div>
@@ -115,7 +117,15 @@ const App: React.FC = () => {
                 Dinner
                 <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
                   <button>
-                    <img className='object-contai rounded-lg' src={DinnerIcon} alt="Dinner Icon" />
+                    <img className='object-contai' src={DinnerIcon} alt="Dinner Icon" />
+                  </button>
+                </a>
+              </div>
+              <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                Takeaway
+                <a href={TAMenu} target="_blank" rel="noopener noreferrer">
+                  <button>
+                    <img className='object-contai' src={TAMenuIcon} alt="Dinner Icon" />
                   </button>
                 </a>
               </div>
