@@ -1,1 +1,12 @@
-
+#licensedlogo-svg {
+    width: 108px;
+    height: 120px;
+  }
+  
+  /* Medium screens */
+  @media (max-width: 768px) {
+    #licensedlogo-svg {
+      width: 81px;
+      height: 90px;
+    }
+  }

@@ -14,7 +14,7 @@ import { LinearBlur } from 'progressive-blur'
 import { Logo } from './assets/svg/logo.tsx';
 import LunchIcon from './assets/pngicons/Lunch Icon.webp';
 import LunchMenu from './assets/PDF/Zen Japanese Lunch Menu.pdf';
-import { MenuBook } from './assets/svg/icons.tsx';
+import { MenuBook, LicensedLogo } from './assets/svg/icons.tsx';
 import Salmon from './assets/storephotos/salmon.webp';
 import Salmon2 from './assets/storephotos/salmon2.webp';
 import Serving from './assets/storephotos/serving.webp';
@@ -209,6 +209,10 @@ const App: React.FC = () => {
         <p className='font-serif  text-white'>
           Dinner 17:00 ~ 20:30
         </p>
+      </div>
+
+      <div className='fixed bottom-10 right-10 z-20'>
+        <LicensedLogo/>
       </div>
     </>
   );
