@@ -7,7 +7,4 @@ www.zen-japanese.com
 A fun project to test my composition and design skills. <br>
 All assets were made using figma.
 
-<img width="4348" alt="zen-japanese" src="https://github.com/user-attachments/assets/aa29e1e7-1fc7-4210-80b0-9e46b3b57b95">
-
-
-
+<img width="4188" alt="zen-japanese" src="https://github.com/user-attachments/assets/512f0882-60b0-4d1a-bfd7-acca8867bed2">
