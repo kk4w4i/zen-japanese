@@ -14,6 +14,10 @@ import { LinearBlur } from 'progressive-blur'
 import { Logo } from './assets/svg/logo.tsx';
 import LunchIcon from './assets/pngicons/Lunch Icon.webp';
 import LunchMenu from './assets/PDF/Zen Japanese Lunch Menu.pdf';
+import DessertIcon from './assets/pngicons/Dessert Icon.webp';
+import DessertMenu from './assets/PDF/Zen Japanese Dessert Menu.pdf';
+import DrinkIcon from './assets/pngicons/Drink Icon.webp';
+import DrinkMenu from './assets/PDF/Zen Japanese Drink Menu.pdf';
 import { MenuBook, LicensedLogo } from './assets/svg/icons.tsx';
 import Salmon from './assets/storephotos/salmon.webp';
 import Salmon2 from './assets/storephotos/salmon2.webp';
@@ -104,31 +108,51 @@ const App: React.FC = () => {
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Content className='fixed h-screen w-screen flex justify-center items-center backdrop-blur-sm z-50'>
-            <div className='relative flex flex-col md:grid md:grid-cols-3 w-full h-full pt-10 font-serif text-white text-[1.2rem] overflow-auto'>
-              <div className='p-10 flex flex-col items-center gap-5 justify-center'>
-                Lunch
-                <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
-                  <button>
-                    <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
-                  </button>
-                </a>
+            <div className='relative flex flex-col md:justify-center items-center w-full h-full pt-10 font-serif text-white text-[1.2rem] overflow-auto'>
+              <div className='flex flex-col md:grid md:grid-cols-3'>
+                <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                  Lunch
+                  <a href={LunchMenu} target="_blank" rel="noopener noreferrer">
+                    <button>
+                      <img className='object-contain' src={LunchIcon} alt="Lunch Icon" />
+                    </button>
+                  </a>
+                </div>
+                <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                  Dinner
+                  <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
+                    <button>
+                      <img className='object-contain' src={DinnerIcon} alt="Dinner Icon" />
+                    </button>
+                  </a>
+                </div>
+                <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                  Takeaway
+                  <a href={TAMenu} target="_blank" rel="noopener noreferrer">
+                    <button>
+                      <img className='object-contain' src={TAMenuIcon} alt="Dinner Icon" />
+                    </button>
+                  </a>
+                </div>
               </div>
-              <div className='p-10 flex flex-col items-center gap-5 justify-center'>
-                Dinner
-                <a href={DinnerMenu} target="_blank" rel="noopener noreferrer">
-                  <button>
-                    <img className='object-contai' src={DinnerIcon} alt="Dinner Icon" />
-                  </button>
-                </a>
-              </div>
-              <div className='p-10 flex flex-col items-center gap-5 justify-center'>
-                Takeaway
-                <a href={TAMenu} target="_blank" rel="noopener noreferrer">
-                  <button>
-                    <img className='object-contai' src={TAMenuIcon} alt="Dinner Icon" />
-                  </button>
-                </a>
-              </div>
+              <div className='flex flex-col md:grid md:grid-cols-2 md:w-[70%]'>
+                <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                  Drinks
+                  <a href={DrinkMenu} target="_blank" rel="noopener noreferrer">
+                    <button>
+                      <img className='object-contain' src={DrinkIcon} alt="Lunch Icon" />
+                    </button>
+                  </a>
+                </div>
+                <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                  Desserts
+                  <a href={DessertMenu} target="_blank" rel="noopener noreferrer">
+                    <button>
+                      <img className='object-contain h-[30vh]' src={DessertIcon} alt="Dinner Icon" />
+                    </button>
+                  </a>
+                </div>
+              </div> 
             </div>
             <Drawer.Close>
               <button className='absolute right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
