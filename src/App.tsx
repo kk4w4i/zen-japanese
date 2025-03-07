@@ -140,7 +140,7 @@ const App: React.FC = () => {
                   Drinks
                   <a href={DrinkMenu} target="_blank" rel="noopener noreferrer">
                     <button>
-                      <img className='object-contain' src={DrinkIcon} alt="Lunch Icon" />
+                      <img className='object-contain h-[30vh] md:h-[40vh] xxl:h-[30vh]' src={DrinkIcon} alt="Lunch Icon" />
                     </button>
                   </a>
                 </div>
@@ -148,7 +148,7 @@ const App: React.FC = () => {
                   Desserts
                   <a href={DessertMenu} target="_blank" rel="noopener noreferrer">
                     <button>
-                      <img className='object-contain h-[30vh]' src={DessertIcon} alt="Dinner Icon" />
+                      <img className='object-contain h-[30vh] md:h-[40vh] xxl:h-[30vh]' src={DessertIcon} alt="Dinner Icon" />
                     </button>
                   </a>
                 </div>
