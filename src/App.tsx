@@ -135,15 +135,7 @@ const App: React.FC = () => {
                   </a>
                 </div>
               </div>
-              <div className='flex flex-col md:grid md:grid-cols-2 md:w-[70%]'>
-                <div className='p-10 flex flex-col items-center gap-5 justify-center'>
-                  Drinks
-                  <a href={DrinkMenu} target="_blank" rel="noopener noreferrer">
-                    <button>
-                      <img className='object-contain h-[30vh] md:h-[40vh] xxl:h-[30vh]' src={DrinkIcon} alt="Lunch Icon" />
-                    </button>
-                  </a>
-                </div>
+              <div className='flex flex-col md:grid md:grid-cols-1 md:w-[70%]'>
                 <div className='p-10 flex flex-col items-center gap-5 justify-center'>
                   Desserts
                   <a href={DessertMenu} target="_blank" rel="noopener noreferrer">
