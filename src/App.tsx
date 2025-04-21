@@ -18,7 +18,7 @@ import DessertIcon from './assets/pngicons/Dessert Icon.webp';
 import DessertMenu from './assets/PDF/Zen Japanese Dessert Menu.pdf';
 import DrinkIcon from './assets/pngicons/Drink Icon.webp';
 import DrinkMenu from './assets/PDF/Zen Japanese Drink Menu.pdf';
-import { MenuBook, LicensedLogo } from './assets/svg/icons.tsx';
+import { MenuBook, LicensedLogo, FacebookLogo, InstagramLogo } from './assets/svg/icons.tsx';
 import Salmon from './assets/storephotos/salmon.webp';
 import Salmon2 from './assets/storephotos/salmon2.webp';
 import Serving from './assets/storephotos/serving.webp';
@@ -135,7 +135,15 @@ const App: React.FC = () => {
                   </a>
                 </div>
               </div>
-              <div className='flex flex-col md:grid md:grid-cols-1 md:w-[70%]'>
+              <div className='flex flex-col md:grid md:grid-cols-2 md:w-[70%]'>
+                <div className='p-10 flex flex-col items-center gap-5 justify-center'>
+                  Drinks
+                  <a href={DrinkMenu} target="_blank" rel="noopener noreferrer">
+                    <button>
+                      <img className='object-contain h-[30vh] md:h-[40vh] xxl:h-[30vh]' src={DrinkIcon} alt="Drink Icon" />
+                    </button>
+                  </a>
+                </div>
                 <div className='p-10 flex flex-col items-center gap-5 justify-center'>
                   Desserts
                   <a href={DessertMenu} target="_blank" rel="noopener noreferrer">
@@ -177,12 +185,19 @@ const App: React.FC = () => {
                 </a>
               </section>
               <section className='flex items-center gap-2'>
-                <a href="https://www.instagram.com/zen_japanese" target="_blank" rel="noopener noreferrer" className='font-mono text-[0.9rem] hover:underline'>
-                  @zen_japanese
-                </a>
-                -
                 <a className='font-mono text-[0.9rem]'>
                   www.zen-japanese.com
+                </a>
+              </section>
+              <section className='flex items-center gap-10 mt-10'>
+                <a href="https://www.facebook.com/profile.php?id=61558344089314" target="_blank" rel="noopener noreferrer" className='flex items-center justify-center gap-1 font-mono text-[0.9rem] hover:underline'>
+                  <FacebookLogo />
+                  Zen Japanese
+                </a>
+
+                <a href="https://www.instagram.com/zen_japanese" target="_blank" rel="noopener noreferrer" className='flex items-center justify-center gap-1 font-mono text-[0.9rem] hover:underline'>
+                  <InstagramLogo />
+                  @zen_japanese
                 </a>
               </section>
             </div>
