@@ -2,10 +2,16 @@ import './App.css';
 
 import { useEffect, useState } from 'react';
 
+// PDFs MENUS
+import DinnerMenu from './assets/PDF/v2/Zen Japanese Dinner Menu.pdf';
+import LunchMenu from './assets/PDF/v2/Zen Japanese Lunch Menu.pdf';
+import DessertMenu from './assets/PDF/v1/Zen Japanese Dessert Menu.pdf';
+import DrinkMenu from './assets/PDF/v1/Zen Japanese Drink Menu.pdf';
+import TAMenu from './assets/PDF/v2/Zen Japanese Takeaway Menu.pdf'
+
 import Bar from './assets/storephotos/bar.webp';
 import BusinessCard from './assets/pngicons/Businesscard.png';
 import DinnerIcon from './assets/pngicons/Dinner Icon.webp';
-import DinnerMenu from './assets/PDF/Zen Japanese Dinner Menu.pdf';
 import { Drawer } from 'vaul';
 import Drinks from './assets/storephotos/drinks.webp';
 import FadeGallery from './components/FadeGallery.tsx';
@@ -13,18 +19,14 @@ import Instore from './assets/storephotos/instore.webp';
 import { LinearBlur } from 'progressive-blur'
 import { Logo } from './assets/svg/logo.tsx';
 import LunchIcon from './assets/pngicons/Lunch Icon.webp';
-import LunchMenu from './assets/PDF/Zen Japanese Lunch Menu.pdf';
 import DessertIcon from './assets/pngicons/Dessert Icon.webp';
-import DessertMenu from './assets/PDF/Zen Japanese Dessert Menu.pdf';
 import DrinkIcon from './assets/pngicons/Drink Icon.webp';
-import DrinkMenu from './assets/PDF/Zen Japanese Drink Menu.pdf';
 import { MenuBook, LicensedLogo, FacebookLogo, InstagramLogo } from './assets/svg/icons.tsx';
 import Salmon from './assets/storephotos/salmon.webp';
 import Salmon2 from './assets/storephotos/salmon2.webp';
 import Serving from './assets/storephotos/serving.webp';
 import StorePhoto from './assets/storephotos/store-front.webp';
 import StoreSign from './assets/storephotos/store-sign.webp';
-import TAMenu from './assets/PDF/Zen Japanese Takeaway Menu.pdf'
 import TAMenuIcon from './assets/pngicons/Takeaway Icon.webp'
 import { X } from 'lucide-react';
 import Yamazaki from './assets/storephotos/yamazaki.webp';
@@ -229,13 +231,13 @@ const App: React.FC = () => {
           Monday
         </p>
         <p className='font-serif text-white'>
-          Lunch 10:30 ~ 14:30
+          Lunch 11:00 ~ 14:30
         </p>
         <p className='font-serif  text-white'>
           Tuesday to Saturday
         </p>
         <p className='font-serif  text-white'>
-          Lunch 10:30 ~ 14:30
+          Lunch 11:00 ~ 14:30
         </p>
         <p className='font-serif  text-white'>
           Dinner 17:00 ~ 20:30
