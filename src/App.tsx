@@ -102,14 +102,14 @@ const App: React.FC = () => {
       <FadeGallery isActive={slide} gallery={Object.fromEntries(Object.entries(gallery).map(([key, value]) => [key, value.image]))} />
       <button className='fixed w-[50%] h-screen z-30 cursor-w-resize' onClick={slideLeft} />
       <button className='fixed right-0 w-[50%] h-screen z-30 cursor-e-resize' onClick={slideRight} />
-      <Drawer.Root>
+      <Drawer.Root direction="bottom" snapPoints={[1]}>
         <Drawer.Trigger asChild>
-          <button className='fixed flex justify-center items-center gap-3 left-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-40'>
-            <MenuBook />Menu
+          <button className='fixed flex justify-center items-center gap-3 left-10 top-10 px-4 py-2 rounded-lg backdrop-blur-xs bg-white/15 font-serif text-white text-[1.2rem] cursor-pointer z-40'>
+            <MenuBook /> Menu
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Content className='fixed h-screen w-screen flex justify-center items-center backdrop-blur-sm z-50'>
+          <Drawer.Content className='fixed top-0 left-0 h-screen w-screen flex justify-start items-start backdrop-blur-sm z-50'>
             <div className='relative flex flex-col md:justify-center items-center w-full h-full pt-10 font-serif text-white text-[1.2rem] overflow-auto'>
               <div className='flex flex-col md:grid md:grid-cols-3'>
                 <div className='p-10 flex flex-col items-center gap-5 justify-center'>
@@ -164,14 +164,22 @@ const App: React.FC = () => {
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer.Root>
-      <Drawer.Root>
+      <a
+        href="https://www.opentable.com.au/r/zen-japanese-buderim?restref=277850"
+        target="_blank"
+        rel="noopener noreferrer"
+        className='fixed right-10 top-24 px-4 py-2 rounded-lg backdrop-blur-xs bg-white/15 font-serif text-white text-[1.2rem] cursor-pointer z-40'
+      >
+        Book a Table
+      </a>
+      <Drawer.Root direction="bottom" snapPoints={[1]}>
         <Drawer.Trigger asChild>
-          <button className='fixed right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-40'>
+          <button className='fixed right-10 top-10 px-4 py-2 rounded-lg backdrop-blur-xs bg-white/15 font-serif text-white text-[1.2rem] cursor-pointer z-40'>
             Contact
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Content className='fixed h-screen w-screen backdrop-blur-sm z-50'>
+          <Drawer.Content className='fixed top-0 left-0 h-screen w-screen backdrop-blur-sm z-50'>
             <img className='absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]' src={BusinessCard} />
             <div className='absolute w-full left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col justify-center items-center z-40'>
               <a href="https://www.google.com/maps/place/Zen+Japanese/@-26.6860014,153.0506864,15z/data=!4m6!3m5!1s0x6b9377b299142165:0x131c62d91e3b9c5!8m2!3d-26.6860014!4d153.0506864!16s%2Fg%2F11w1gn_vzk?entry=ttu" target="_blank" rel="noopener noreferrer" className='font-mono text-[0.9rem] hover:underline'>
