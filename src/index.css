@@ -74,3 +74,17 @@
       @apply bg-background text-foreground;
     }
   }
+
+  /* Hide OpenTable widget elements */
+  [id*="ot-widget"],
+  [class*="ot-widget"],
+  [id*="opentable"],
+  [class*="opentable"],
+  iframe[src*="opentable"],
+  iframe[src*="ot-widget"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
