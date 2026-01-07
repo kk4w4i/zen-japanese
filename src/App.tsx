@@ -47,7 +47,7 @@ const gallery: Record<number, GalleryItem> = {
   7: { image: Salmon2, color: "#848484" },
   8: { image: Instore, color: "#AC9A8D" }
 };
-  
+
 const App: React.FC = () => {
   const [slide, setSlide] = useState<number>(0);
 
@@ -90,15 +90,15 @@ const App: React.FC = () => {
         tint="rgba(0, 0, 0, 0.1)"
         // You can pass any div props to the component. Useful for positioning.
         style={{
-            position: "absolute",
-            inset: 0,
-            top: 0,
-            height: "5vh",
-            zIndex: 60,
+          position: "absolute",
+          inset: 0,
+          top: 0,
+          height: "5vh",
+          zIndex: 60,
         }}
-            // Same props as RadialBlur, but with an additional side prop that specifies the direction of the gradient and the transform origin so it's easy to scale in the right direction. Default is "top".
-            side="top"
-        />
+        // Same props as RadialBlur, but with an additional side prop that specifies the direction of the gradient and the transform origin so it's easy to scale in the right direction. Default is "top".
+        side="top"
+      />
       <FadeGallery isActive={slide} gallery={Object.fromEntries(Object.entries(gallery).map(([key, value]) => [key, value.image]))} />
       <button className='fixed w-[50%] h-screen z-30 cursor-w-resize' onClick={slideLeft} />
       <button className='fixed right-0 w-[50%] h-screen z-30 cursor-e-resize' onClick={slideRight} />
@@ -154,7 +154,7 @@ const App: React.FC = () => {
                     </button>
                   </a>
                 </div>
-              </div> 
+              </div>
             </div>
             <Drawer.Close>
               <button className='absolute right-10 top-10 font-serif text-white text-[1.2rem] cursor-pointer z-20'>
@@ -171,6 +171,14 @@ const App: React.FC = () => {
         className='fixed right-10 top-24 px-4 py-2 rounded-lg backdrop-blur-xs bg-white/15 font-serif text-white text-[1.2rem] cursor-pointer z-40'
       >
         Book a Table
+      </a>
+      <a
+        href="https://zen-japanese.square.site/?owg-fulfillment=pickup&fulfillment=PICKUP&location=11eeade717096af0af423cecef6dbaf0&location_id=LKFDBXTXCZ0FM&rwg_token=ACgRB3dbEOHOddUeZV1Z_gvfzzCAdM4kt2nUnNAx5kDSUuZy1d4hNZ-h69iY8ALGxLPeq2O8rae2QUVs6CuimABGpstZr9WZmHASYo0nJvwOrBUKnxi1Yh0%3D"
+        target="_blank"
+        rel="noopener noreferrer"
+        className='fixed right-10 top-[9.5rem] px-4 py-2 rounded-lg backdrop-blur-xs bg-white/15 font-serif text-white text-[1.2rem] cursor-pointer z-40'
+      >
+        Order Online
       </a>
       <Drawer.Root direction="bottom" snapPoints={[1]}>
         <Drawer.Trigger asChild>
@@ -253,7 +261,7 @@ const App: React.FC = () => {
       </div>
 
       <div className='fixed bottom-10 right-10 z-20'>
-        <LicensedLogo/>
+        <LicensedLogo />
       </div>
     </>
   );
