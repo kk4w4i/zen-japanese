@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import DinnerMenu from './assets/PDF/v2/Zen Japanese Dinner Menu.pdf';
 import LunchMenu from './assets/PDF/v2/Zen Japanese Lunch Menu.pdf';
 import DessertMenu from './assets/PDF/v1/Zen Japanese Dessert Menu.pdf';
-import DrinkMenu from './assets/PDF/v1/Zen Japanese Drink Menu.pdf';
+import DrinkMenu from './assets/PDF/v2/Zen Japanese Drink Menu.pdf';
 import TAMenu from './assets/PDF/v2/Zen Japanese Takeaway Menu.pdf'
 
 import Bar from './assets/storephotos/bar.webp';
